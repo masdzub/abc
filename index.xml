@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gandes Goldestan</title>
+    <link>https://gandesgold.github.io/</link>
+    <description>Recent content on Gandes Goldestan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sun, 13 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://gandesgold.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Relationship Doesn&#39;t Mean to Make Us Happy, But It Makes Us Conscious</title>
+      <link>https://gandesgold.github.io/thoughts/relationship-doesnt-mean-to-make-us-happy-but-it-makes-us-conscious/</link>
+      <pubDate>Sun, 13 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gandesgold.github.io/thoughts/relationship-doesnt-mean-to-make-us-happy-but-it-makes-us-conscious/</guid>
+      <description>&amp;ldquo;When you blame and criticize others, you are avoiding some truth about yourself.&amp;quot; — Deepak Chopra
+ As a human being I believe that each of us must has experienced problems with others, whether it&amp;rsquo;s with our parents, siblings, lovers, friends, and so on. And as humans, almost all of us must have felt irritated and blamed them in the end, right? Well, by writing this post actually it doesn&amp;rsquo;t mean that I want to be seen as a philosopher, wise person, or whatever it is.</description>
+    </item>
+    
+    <item>
+      <title>A Simple Web Scraping with Python</title>
+      <link>https://gandesgold.github.io/learning/a-simple-web-scraping-with-python/</link>
+      <pubDate>Sat, 12 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gandesgold.github.io/learning/a-simple-web-scraping-with-python/</guid>
+      <description>Today for spending time on weekend, I decided to learn about Web Scraping in Python. Web scraping/web data extraction/web harvesting is a technique to extract the necessary content or data from a website. This method is really powerful especially in business and market research, such as product and price optimization, competitor monitoring, etc.
+Is web scraping legal? Based on my research from some sources, it depends. If our intention is for educational purpose and as long as it is the public domain data, there is no strict implication so far.</description>
+    </item>
+    
+    <item>
+      <title>How to Create Wordcloud Visualization with R</title>
+      <link>https://gandesgold.github.io/learning/how-to-create-wordcloud-visualization-with-r/</link>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gandesgold.github.io/learning/how-to-create-wordcloud-visualization-with-r/</guid>
+      <description>Last year, in July 2019 I attended a Data Science workshop which was provided by Indonesia Financial Authority (OJK). The lesson materials they provided are basic and good enough. One of them is about making a word cloud visualization from text datasets with R, which is example of text mining implementation. This one is an interesting part to me. To be honest, I little bit forgot about this material, so today I want to learn and remember it again and make its learning documentation.</description>
+    </item>
+    
+    <item>
+      <title>Having Side Project? Why Not?</title>
+      <link>https://gandesgold.github.io/thoughts/having-side-project-why-not/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gandesgold.github.io/thoughts/having-side-project-why-not/</guid>
+      <description>Hi again, folks!
+In my previous blog post I have written about my experience and benefits I got from having a bookstagram account. After launched my bookstagram, I promoted it to my friends firstly, including my work colleagues. One of them was even saying, “Wow, this is great! I like seeing people who have side project to do.”
+Oh, &amp;ldquo;side project&amp;rdquo;?
+Well, actually ‘side project’ are common words. But I don’t know why, it feels like this word caught my attention suddenly.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://gandesgold.github.io/about/</link>
+      <pubDate>Sun, 06 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gandesgold.github.io/about/</guid>
+      <description>Hi, there!
+Welcome to my personal site 😊
+My name is Gandes Goldestan, but in daily life usually people call me Gandes. Yeah, my name is one of rare —and maybe unique— names in Indonesia. But I am proud of it, thanks to my Dad who have made this name 😂
+I majored in Mathematics Department, specialising in Computer Science. I have been in love in tech world and computer since I was in Senior High School.</description>
+    </item>
+    
+    <item>
+      <title>Benefits I Get from Managing a Bookstagram</title>
+      <link>https://gandesgold.github.io/thoughts/benefits-i-get-from-managing-a-bookstagram/</link>
+      <pubDate>Sun, 06 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gandesgold.github.io/thoughts/benefits-i-get-from-managing-a-bookstagram/</guid>
+      <description>Hi, this is my first writing in my blog site, and I am going to share about the experience and benefits I get from having a bookstagram.
+One day a friend who is also my work colleague chatted me suddenly. She told me that she just bought a Kindle like mine from an online marketplace. Yeah Kindle, an e-reader device that is usually used by people to read e-books. She said she was thinking to buy it because she doesn’t know what to do to spend her leisure time in this Corona pandemic.</description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>https://gandesgold.github.io/projects/</link>
+      <pubDate>Sun, 06 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gandesgold.github.io/projects/</guid>
+      <description>📎 Software development (web-based) to predict the level of paddy production March 2018 - Oktober 2018 In this project, I cooperated with Dr. Imam Mukhlash from Mathematics Department of ITS to develop a web-based program to predict the level of paddy production in short term as decision support. Gaussian Copula Marginal Regression (GCMR) model is constructed to estimate harvested area in 5 East Java districts.
+Technologies : R, MySQL, PHP, HTML, CSS</description>
+    </item>
+    
+  </channel>
+</rss>

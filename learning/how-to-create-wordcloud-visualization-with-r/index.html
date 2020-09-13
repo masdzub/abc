@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="map[name:Gandes Goldestan]">
+<meta name="description" content="Last year, in July 2019 I attended a Data Science workshop which was provided by Indonesia Financial Authority (OJK). The lesson materials they provided are basic and good enough. One of them is about making a word cloud visualization from text datasets with R, which is example of text mining implementation. This one is an interesting part to me. To be honest, I little bit forgot about this material, so today I want to learn and remember it again and make its learning documentation." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://gandesgold.github.io/learning/how-to-create-wordcloud-visualization-with-r/" />
+
+
+    <title>
+        
+            How to Create Wordcloud Visualization with R :: Gandes Goldestan  — a data researcher // bookish
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://gandesgold.github.io/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://gandesgold.github.io/apple-touch-icon.png">
+    <link rel="icon" type="images/png" sizes="32x32" href="https://gandesgold.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://gandesgold.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://gandesgold.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://gandesgold.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://gandesgold.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="How to Create Wordcloud Visualization with R">
+<meta itemprop="description" content="Last year, in July 2019 I attended a Data Science workshop which was provided by Indonesia Financial Authority (OJK). The lesson materials they provided are basic and good enough. One of them is about making a word cloud visualization from text datasets with R, which is example of text mining implementation. This one is an interesting part to me. To be honest, I little bit forgot about this material, so today I want to learn and remember it again and make its learning documentation.">
+<meta itemprop="datePublished" content="2020-09-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-09-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="928">
+<meta itemprop="image" content="https://gandesgold.github.io"/>
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://gandesgold.github.io"/>
+
+<meta name="twitter:title" content="How to Create Wordcloud Visualization with R"/>
+<meta name="twitter:description" content="Last year, in July 2019 I attended a Data Science workshop which was provided by Indonesia Financial Authority (OJK). The lesson materials they provided are basic and good enough. One of them is about making a word cloud visualization from text datasets with R, which is example of text mining implementation. This one is an interesting part to me. To be honest, I little bit forgot about this material, so today I want to learn and remember it again and make its learning documentation."/>
+
+
+
+    <meta property="og:title" content="How to Create Wordcloud Visualization with R" />
+<meta property="og:description" content="Last year, in July 2019 I attended a Data Science workshop which was provided by Indonesia Financial Authority (OJK). The lesson materials they provided are basic and good enough. One of them is about making a word cloud visualization from text datasets with R, which is example of text mining implementation. This one is an interesting part to me. To be honest, I little bit forgot about this material, so today I want to learn and remember it again and make its learning documentation." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gandesgold.github.io/learning/how-to-create-wordcloud-visualization-with-r/" />
+<meta property="og:image" content="https://gandesgold.github.io"/>
+<meta property="article:published_time" content="2020-09-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-09-10T00:00:00+00:00" />
+
+
+
+
+    <meta property="article:section" content="Learning" />
+
+
+
+    <meta property="article:published_time" content="2020-09-10 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://gandesgold.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://gandesgold.github.io/about/">About</a></li><li><a href="https://gandesgold.github.io/learning/">Learning Journey</a></li><li><a href="https://gandesgold.github.io/projects/">Projects</a></li><li><a href="https://gandesgold.github.io/thoughts/">Thoughts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="https://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://gandesgold.github.io/learning/how-to-create-wordcloud-visualization-with-r/">How to Create Wordcloud Visualization with R</a></h2>
+
+            
+
+            
+
+            <div class="post-content">
+                <p>Last year, in July 2019 I attended a Data Science workshop which was provided by Indonesia Financial Authority (OJK). The lesson materials they provided are basic and good enough. One of them is about making a <a href="https://www.betterevaluation.org/en/evaluation-options/wordcloud#:~:text=Synonyms%3A,in%20the%20document(s)."><strong>word cloud</strong></a> visualization from text datasets with <a href="www.r-project.org">R</a>, which is example of <em>text mining</em> implementation. This one is an interesting part to me. To be honest, I little bit forgot about this material, so today I want to learn and remember it again and make its learning documentation. Beside of sharing, this documentation may be useful to me as reminder if I forget about the algorithm, libraries/packages, etc later.</p>
+<p>Based on research of Yuping Jin, the basic layout algorithm in generating a word cloud is <strong>to estimate the frequency level of a keyword by their frequencies or categories. In principle, the font size of a word in the word cloud is determined by its appearing
+frequency</strong>. You can read the paper for more detail <a href="https://www.sciencedirect.com/science/article/pii/S1877705817302230/pdf?md5=28be5977c85149319ac4d992edf3fc95&amp;pid=1-s2.0-S1877705817302230-main.pdf">here</a>.</p>
+<p>The dataset used for generating word cloud is <strong>finance.csv</strong>. It consists of collection of people&rsquo;s comments about topic related to financial in Indonesian language.</p>
+<p>For this learning, these are some R libraries we need to make a word cloud visualization:</p>
+<ul>
+<li>
+<p><a href="https://cran.r-project.org/package=tm"><strong><code>tm</code></strong></a> : A Text Mining package which provides some powerful functions in text-processing steps and has methods such as importing data, handling corpus, metadata management, creation of term document matrices, and preprocessing methods.</p>
+</li>
+<li>
+<p><a href="https://cran.r-project.org/package=SnowballC"><strong><code>SnowballC</code></strong></a> : An R interface to the C &lsquo;libstemmer&rsquo; library that implements Porter&rsquo;s word stemming algorithm for collapsing words to a common root to aid comparison of vocabulary.</p>
+</li>
+<li>
+<p><a href="https://cran.r-project.org/package=wordcloud"><strong><code>wordcloud</code></strong></a> : A package which has functionality to create pretty word clouds, visualize differences and similarity between documents, and avoid over-plotting in scatter plots with text.</p>
+</li>
+<li>
+<p><a href="https://cran.r-project.org/package=RColorBrewer"><strong><code>RColorBrewer</code></strong></a> : This package provides color schemes for maps (and other graphics) designed by Cynthia Brewer as described at <a href="http://colorbrewer2.org">http://colorbrewer2.org</a></p>
+</li>
+</ul>
+<p>For initial step, Open RStudio and <strong>install the libraries above and load them</strong> by writing syntax:</p>
+<pre><code>install.packages(&quot;tm&quot;)  
+install.packages(&quot;SnowballC&quot;) 
+install.packages(&quot;wordcloud&quot;) 
+install.packages(&quot;RColorBrewer&quot;) 
+
+library(&quot;tm&quot;)
+library(&quot;SnowballC&quot;)
+library(&quot;wordcloud&quot;)
+library(&quot;RColorBrewer&quot;)
+</code></pre><p>Then, <strong>determine the file directory path</strong> where we save the document, and <strong>read the dataset text</strong>.</p>
+<pre><code>#Set the directory file
+setwd(&quot;/Users/gandes.goldestan/Downloads/wordcloud&quot;)
+
+#Read the dataset
+berita &lt;- read.csv(&quot;finance.csv&quot;, header = TRUE,sep=&quot;;&quot;)
+View(berita)
+</code></pre><p>After that, we need to make Corpus. <strong>Corpus is the collection of written texts.</strong> In this project, I put the value for the maximum printed up to <strong>5000</strong> rows. Actually we can set the number to any value, and it doesn’t matter.</p>
+<pre><code>docs &lt;- Corpus(VectorSource(berita[1:5000,1]))
+inspect(docs)
+</code></pre><p>The next step we do is <strong>transforming the texts with</strong> <code>tm_map</code> <strong>function</strong>. For example, we will replace
+<code>&quot;/&quot;</code>, <code>&quot;@&quot;</code>, and <code>&quot;|&quot;</code> with spaces.</p>
+<pre><code>toSpace &lt;- content_transformer(function(x, pattern) gsub(pattern, &quot; &quot;,x))
+docs &lt;- tm_map(docs, toSpace, &quot;/&quot;)
+docs &lt;- tm_map(docs, toSpace, &quot;@&quot;)
+docs &lt;- tm_map(docs, toSpace, &quot;\\|&quot;)
+docs &lt;- tm_map(docs, toSpace, &quot;https&quot;)
+docs &lt;- tm_map(docs, toSpace, &quot;com&quot;)
+</code></pre><p>We will continue to <strong>convert the texts to lowercase, remove the numbers, remove punctuations, eliminates excessive white space, and remove stopwords</strong>.</p>
+<p>Stopwords are words which does not add much meaning to a sentence. They can safely be ignored without sacrificing the meaning of the sentence. Because the texts dataset we used are in Indonesian, so we also use stopwords text file in Indonesian.</p>
+<pre><code>#Transform text to lowercase
+docs  &lt;- tm_map(docs, content_transformer(tolower))
+
+#Remove the numbers
+docs &lt;- tm_map(docs, removeNumbers)
+
+#Remove stopwords with &quot;stopwords_id.txt&quot;
+stopwords_id &lt;- readLines(file.choose())
+typeof(stopwords_id)
+docs &lt;- tm_map(docs, removeWords, stopwords_id)
+
+#Remove  punctuations
+docs &lt;- tm_map(docs, removePunctuation)
+
+#Eliminate excessive white spaces
+docs &lt;- tm_map(docs, stripWhitespace)
+</code></pre><p>After the document is prepared, we continue to create a <strong>Term-Document Matrix</strong>. Based on <a href="https://www.displayr.com/text-analysis-hooking-up-your-term-document-matrix-to-custom-r-code/">DisplayR</a> :</p>
+<blockquote>
+<p><em>&ldquo;A term document matrix is a way of representing the words in the text as a table (or matrix) of numbers. The rows of the matrix represent the text responses to be analysed, and the columns of the matrix represent the words from the text that are to be used in the analysis.&quot;</em></p>
+</blockquote>
+<p>A term-document matrix is an important representation for text analytics.</p>
+<pre><code>dtm &lt;- TermDocumentMatrix(docs)
+m &lt;- as.matrix(dtm)
+v &lt;- sort(rowSums(m), decreasing = TRUE)
+d &lt;- data.frame(word = names(v), freq = v)
+head(d, 15)
+</code></pre><p>Run the syntax above, and the matrix result will be shown like this:</p>
+
+    <img src="https://gandesgold.github.io/images/tdm.png"  alt="Term-Document Matrix"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Next, call the Word Cloud visualization by writing the syntax:</p>
+<pre><code>set.seed(12)
+windows()
+wordcloud(words=d$word, freq = d$freq, min.freq = 100,
+          max.words = 100, random.order = FALSE, rot.per = 0.35,
+          colors = brewer.pal(8, &quot;Dark2&quot;))
+</code></pre><p>Each parameter is explained below:</p>
+<ul>
+<li><code>words</code> = the words to be plotted</li>
+<li><code>freq</code> = the frequency of each word</li>
+<li><code>min.freq</code> = words with a frequency below min.freq will not be plotted</li>
+<li><code>max.words</code> = the maximum number of words to be plotted</li>
+<li><code>random.order</code> = plotting words in random order, otherwise FALSE</li>
+<li><code>rot.per</code> = proportion of words with 90 degree rotation (vertical text)</li>
+<li><code>colors</code> = word color from the least frequent to the most frequent</li>
+</ul>
+<p>Now, it shows the visualization of Word Cloud like an image below.</p>
+
+    <img src="https://gandesgold.github.io/images/wordcloud.png"  alt="Word Cloud Visualization"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>From the word cloud above we can see the top 3 of most frequent words are <strong>&ldquo;bank&rdquo;</strong>, <strong>&ldquo;twitter&rdquo;</strong>, and <strong>&ldquo;pemerintah&rdquo;</strong>.</p>
+<p>We also can make a visualization of most frequent words in a bar graph using this syntax:</p>
+<pre><code>windows()
+barplot(d[1:10,]$freq, las=2, names.arg = d[1:10,]$word, 
+        col = &quot;lightblue&quot;, main=&quot;Most frequent words&quot;, ylab = &quot;word frequencies&quot;)
+</code></pre><p>Then, this is the output we get:</p>
+
+    <img src="https://gandesgold.github.io/images/freq-words.png"  alt="Most Frequent Words"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>For the example of implementation, world cloud is one of interesting way to visualize about trending words/topic in social media and creating tags/categories in website. But, the weakness is we need to make time to clean up the data before processing and visualizing it so that we need the accurate result.</p>
+<p>For the complete code and dataset, you can download or see them in my GitHub <a href="https://github.com/gandesgold/R-wordcloud">wordcloud repository</a>.</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+            
+            
+    <p>
+        <svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://gandesgold.github.io/categories/learning/">Learning</a></span>
+        
+    </p>
+
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2020</span>
+            
+                <span><a href="https://gandesgold.github.io">Gandes Goldestan</a></span>
+            
+            
+                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            
+            <span> <a href="https://gandesgold.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="https://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/gandesgold">Gandes Goldestan</a></span>
+          </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://gandesgold.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+
+
+
+    </body>
+</html>

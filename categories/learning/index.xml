@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Learning on Gandes Goldestan</title>
+    <link>https://gandesgold.github.io/categories/learning/</link>
+    <description>Recent content in Learning on Gandes Goldestan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sat, 12 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://gandesgold.github.io/categories/learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A Simple Web Scraping with Python</title>
+      <link>https://gandesgold.github.io/learning/a-simple-web-scraping-with-python/</link>
+      <pubDate>Sat, 12 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gandesgold.github.io/learning/a-simple-web-scraping-with-python/</guid>
+      <description>Today for spending time on weekend, I decided to learn about Web Scraping in Python. Web scraping/web data extraction/web harvesting is a technique to extract the necessary content or data from a website. This method is really powerful especially in business and market research, such as product and price optimization, competitor monitoring, etc.
+Is web scraping legal? Based on my research from some sources, it depends. If our intention is for educational purpose and as long as it is the public domain data, there is no strict implication so far.</description>
+    </item>
+    
+    <item>
+      <title>How to Create Wordcloud Visualization with R</title>
+      <link>https://gandesgold.github.io/learning/how-to-create-wordcloud-visualization-with-r/</link>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://gandesgold.github.io/learning/how-to-create-wordcloud-visualization-with-r/</guid>
+      <description>Last year, in July 2019 I attended a Data Science workshop which was provided by Indonesia Financial Authority (OJK). The lesson materials they provided are basic and good enough. One of them is about making a word cloud visualization from text datasets with R, which is example of text mining implementation. This one is an interesting part to me. To be honest, I little bit forgot about this material, so today I want to learn and remember it again and make its learning documentation.</description>
+    </item>
+    
+  </channel>
+</rss>

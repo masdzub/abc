@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="map[name:Gandes Goldestan]">
+<meta name="description" content="Today for spending time on weekend, I decided to learn about Web Scraping in Python. Web scraping/web data extraction/web harvesting is a technique to extract the necessary content or data from a website. This method is really powerful especially in business and market research, such as product and price optimization, competitor monitoring, etc.
+Is web scraping legal? Based on my research from some sources, it depends. If our intention is for educational purpose and as long as it is the public domain data, there is no strict implication so far." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://gandesgold.github.io/learning/a-simple-web-scraping-with-python/" />
+
+
+    <title>
+        
+            A Simple Web Scraping with Python :: Gandes Goldestan  — a data researcher // bookish
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://gandesgold.github.io/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://gandesgold.github.io/apple-touch-icon.png">
+    <link rel="icon" type="images/png" sizes="32x32" href="https://gandesgold.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://gandesgold.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://gandesgold.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://gandesgold.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://gandesgold.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="A Simple Web Scraping with Python">
+<meta itemprop="description" content="Today for spending time on weekend, I decided to learn about Web Scraping in Python. Web scraping/web data extraction/web harvesting is a technique to extract the necessary content or data from a website. This method is really powerful especially in business and market research, such as product and price optimization, competitor monitoring, etc.
+Is web scraping legal? Based on my research from some sources, it depends. If our intention is for educational purpose and as long as it is the public domain data, there is no strict implication so far.">
+<meta itemprop="datePublished" content="2020-09-12T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-09-12T00:00:00+00:00" />
+<meta itemprop="wordCount" content="789">
+<meta itemprop="image" content="https://gandesgold.github.io"/>
+
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://gandesgold.github.io"/>
+
+<meta name="twitter:title" content="A Simple Web Scraping with Python"/>
+<meta name="twitter:description" content="Today for spending time on weekend, I decided to learn about Web Scraping in Python. Web scraping/web data extraction/web harvesting is a technique to extract the necessary content or data from a website. This method is really powerful especially in business and market research, such as product and price optimization, competitor monitoring, etc.
+Is web scraping legal? Based on my research from some sources, it depends. If our intention is for educational purpose and as long as it is the public domain data, there is no strict implication so far."/>
+
+
+
+    <meta property="og:title" content="A Simple Web Scraping with Python" />
+<meta property="og:description" content="Today for spending time on weekend, I decided to learn about Web Scraping in Python. Web scraping/web data extraction/web harvesting is a technique to extract the necessary content or data from a website. This method is really powerful especially in business and market research, such as product and price optimization, competitor monitoring, etc.
+Is web scraping legal? Based on my research from some sources, it depends. If our intention is for educational purpose and as long as it is the public domain data, there is no strict implication so far." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gandesgold.github.io/learning/a-simple-web-scraping-with-python/" />
+<meta property="og:image" content="https://gandesgold.github.io"/>
+<meta property="article:published_time" content="2020-09-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-09-12T00:00:00+00:00" />
+
+
+
+
+    <meta property="article:section" content="Learning" />
+
+
+
+    <meta property="article:published_time" content="2020-09-12 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://gandesgold.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://gandesgold.github.io/about/">About</a></li><li><a href="https://gandesgold.github.io/learning/">Learning Journey</a></li><li><a href="https://gandesgold.github.io/projects/">Projects</a></li><li><a href="https://gandesgold.github.io/thoughts/">Thoughts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="https://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://gandesgold.github.io/learning/a-simple-web-scraping-with-python/">A Simple Web Scraping with Python</a></h2>
+
+            
+
+            
+
+            <div class="post-content">
+                <p>Today for spending time on weekend, I decided to learn about <strong>Web Scraping</strong> in Python. Web scraping/web data extraction/web harvesting is a technique to extract the necessary content or data from a website. This method is really powerful especially in business and market research, such as product and price optimization, competitor monitoring, etc.</p>
+<h2 id="is-web-scraping-legal">Is web scraping legal?</h2>
+<p>Based on my research from some sources, it depends. If our intention is for educational purpose and as long as it is the public domain data, there is no strict implication so far. But it becomes illegal when you against the websites&rsquo;s Terms and Conditions, and downloading data at too rapid a rate because this may break the website. For more complete reasons, you can visit and read <a href="https://prowebscraper.com/blog/is-web-scraping-legal/">here.</a></p>
+<p>The data I used for this simple web scraping learning is <strong>Countries of the World</strong>, which is collected from <a href="https://scrapethissite.com/">https://scrapethissite.com/</a>. I use Python 3.7 with PyCharm as the IDE software.  I intentionally decided to learn the simple one for now, because it is necessary to understand the alghorithm firstly. The data I want to extract from this dataset are : <strong>name of country, its capital, population, and area</strong>.</p>
+
+    <img src="https://gandesgold.github.io/images/countriesexample.png"  alt="Countries of World"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>For web scraping, actually there are many popular Python libraries like Scrapy, Beautiful Soup, lxml, Selenium, etc. But for this learning I only used :</p>
+<ul>
+<li><strong><code>BeautifulSoup</code></strong> : A parsing library that can use different parsers. A parser is simply a program that can extract data from HTML and XML documents.</li>
+<li><strong><code>requests</code></strong> : A vital and powerful HTTP library. It doesn&rsquo;t help us only to get the raw ingredients (i.e. HTML), but also can access  the API’s, post to forms, etc.</li>
+<li><strong><code>pandas</code></strong> : A powerful package for data manipulation. We need it later to build the DataFrame of scraping result.</li>
+</ul>
+<p>As web scraping is extracting data from HTML/XML, we should have some knowledge about <strong>HTML/JS/CSS as pre-requisite</strong> so that we can do it much easier.</p>
+<p>The first step, as usual we need to <strong>install and import the libraries</strong> of course. We can install the Python libraries/packages in some ways. Because I use Pycharm, I want to install the packages in PyCharm directly, and you can see the steps <a href="https://www.jetbrains.com/help/pycharm/installing-uninstalling-and-upgrading-packages.html">here.</a>  After installed, import them all by writing syntax:</p>
+<pre><code>from bs4 import BeautifulSoup
+import requests
+import pandas as pd
+</code></pre><p>Next, <strong>make a &lsquo;list&rsquo; to save the scraping result</strong> and <strong>pull down the content of the page</strong> by using the libraries</p>
+<pre><code>data = [] # make a list
+
+page = requests.get('https://scrapethissite.com/pages/simple/')
+soup = BeautifulSoup(page.content, 'html.parser')
+</code></pre><p>Well, now it&rsquo;s time to start to pull the content through HTML by using inspect element. Right-click the mouse and choose <strong>Inspect</strong> in Google Chrome, and it will show like this :</p>
+
+    <img src="https://gandesgold.github.io/images/inspect.png"  alt="Inspect Element"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Here, I want to get the all contents of each country. If we inspect the elements of each country, we can know that the <strong>HTML tag</strong> they use is same: <strong><code>&lt;div class=&quot;col-md-4 country&quot;&gt;...&lt;/div&gt;</code></strong></p>
+
+    <img src="https://gandesgold.github.io/images/col.png"  alt="Inspect Element Countries"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>So, we can use that HTML tag for scraping the each <strong>country</strong> by writing syntax:</p>
+<pre><code>country = soup.find_all('div', class_='col-md-4 country')
+</code></pre><p>If we see the detail of <strong><code>&lt;div class=&quot;col-md-4 country&quot;&gt;...&lt;/div&gt;</code></strong>, we can find the other HTML tags to save the <strong>name of country, capital of country, population,</strong> and <strong>area</strong>.</p>
+<p>This is the example of HTML code of one country :</p>
+
+    <img src="https://gandesgold.github.io/images/tag.png"  alt="Data of Countries"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Now we understand that :</p>
+<ul>
+<li>For each <strong>name of country</strong> is located in <strong><code>&lt;h3&gt;</code></strong> tag with the <code>class</code> named <strong>&lsquo;country-name&rsquo;</strong></li>
+<li>For each <strong>name of capital</strong> is located in <strong><code>&lt;span&gt;</code></strong> tag with the <code>class</code> named <strong>&lsquo;country-capital&rsquo;</strong></li>
+<li>For each <strong>population of country</strong> is located in <strong><code>&lt;span&gt;</code></strong> tag with the <code>class</code> named <strong>&lsquo;country-population&rsquo;</strong></li>
+<li>For each <strong>area of country</strong> is located in <strong><code>&lt;span&gt;</code></strong> tag with the <code>class</code> named <strong>&lsquo;country-area&rsquo;</strong></li>
+</ul>
+<p>Next, let put the HTML tags above to syntax :</p>
+<pre><code>for c in country:
+        country = c.find('h3', class_='country-name').text
+        capital = c.find('span', class_='country-capital').text
+        population = c.find('span', class_='country-population').text
+        area = c.find('span', class_='country-area').text
+</code></pre><p>If you see the codes above, there are functions called <code>find</code>and <code>find_all</code>. Both of them are the example of BeautifulSoup functions, which are used to extract data from HTML. <code>find</code> is used to extract only one output, so if we want to extract more than one output then we can use <code>find_all</code> function.</p>
+<p>For the next step, use <code>append</code> function to take the <strong>country, capital, population</strong>, and <strong>area</strong> into <strong>list</strong> that we have made before.</p>
+<pre><code>        data.append({
+            'Country': country,
+            'Capital': capital,
+            'Population': population,
+            'Area': area
+        })
+</code></pre><p>Then, after the iteration finished, convert the list to be DataFrame using <strong>pandas</strong> library and save it to csv file. Run all syntax and wait for the process.</p>
+<pre><code>df = pd.DataFrame(data)
+
+df.to_csv('country.csv', index=False, encoding=&quot;utf-8&quot;)
+</code></pre><p>Finally! Check the csv file result, and it will shows like this one :</p>
+
+    <img src="https://gandesgold.github.io/images/csvresult.png"  alt="CSV Result"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>For the complete code and csv file result, you can see or download them through my <a href="https://github.com/gandesgold/Python-webScraping">simple web scraping repository</a> on Github.</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+            
+            
+    <p>
+        <svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://gandesgold.github.io/categories/learning/">Learning</a></span>
+        
+    </p>
+
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2020</span>
+            
+                <span><a href="https://gandesgold.github.io">Gandes Goldestan</a></span>
+            
+            
+                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            
+            <span> <a href="https://gandesgold.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="https://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/gandesgold">Gandes Goldestan</a></span>
+          </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://gandesgold.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+
+
+
+    </body>
+</html>
